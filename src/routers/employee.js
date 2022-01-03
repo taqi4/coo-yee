@@ -57,8 +57,8 @@ router.post("/signup",async (req,res)=>{
       res.status(401).send("password and confirm password are not same");
   }
   else{
-    const encryptedPassword = await bcrypt.hash(password, 10);
-    const addEmployee = new Employee({firstname:firstname,lastname:lastname,email:email,mobileNumber:mobileNumber,employee_id:employee_id,role:role,password:encryptedPassword,cpassword:encryptedPassword});
+
+    const addEmployee = new Employee({firstname:firstname,lastname:lastname,email:email,mobileNumber:mobileNumber,employee_id:employee_id,role:role,password:password,cpassword:cpassword});
     const  insertEmployee = await addEmployee.save();
     res.status(200).send("registered successfuly");
   }
@@ -82,7 +82,7 @@ router.post("/signin",async(req,res)=>{
         }
         else{
 
-            if(await !bcrypt.compare(password, isUser.password)||isUser.password!=password){
+            if(isUser.password!=password){
                  return res.status(420).send("inavalid credentials");
             }else{
                  return res.status(200).send(isUser);
@@ -111,8 +111,8 @@ router.post("/adminsignup",async (req,res)=>{
       res.status(401).send("password and confirm password are not same");
   }
   else{
-    const encryptedPassword =await bcrypt.hash(password,10);
-    const addAdmin = new Admin({firstname:firstname,lastname:lastname,email:email,mobileNumber:mobileNumber,employee_id:employee_id,role:role,password:encryptedPassword,cpassword:encryptedPassword});
+    
+    const addAdmin = new Admin({firstname:firstname,lastname:lastname,email:email,mobileNumber:mobileNumber,employee_id:employee_id,role:role,password:password,cpassword:cpassword});
     const  insertAdmin = await addAdmin.save();
     res.status(200).send("registered successfuly");
   }
@@ -137,7 +137,7 @@ router.post("/adminsignin",async(req,res)=>{
         }
         else{
 
-            if(password!=isUser.password || await !bcrypt.compare(password,isUser.password)){
+            if(password!=isUser.password ){
                  return res.status(420).send("inavalid credentials");
             }else{
                  return res.status(200).send(isUser);
