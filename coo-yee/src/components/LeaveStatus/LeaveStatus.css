@@ -1,0 +1,21 @@
+.leave{
+    background-color: white;
+    width: 50%;
+    margin-left: 25%;
+    border: 2px solid tomato;
+    border-radius: 2px;
+    padding: 10px;
+}
+button{
+    width: 30vw ;
+    margin-right: 5px;
+    border-radius:20px;
+}
+@media screen and (max-width:600px){
+    .leave{
+        width: 80%;
+        margin-left: 10%;
+
+
+    }
+}

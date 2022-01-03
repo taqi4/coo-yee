@@ -1,0 +1,116 @@
+.navbar{
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: space-between;
+    z-index: 99;
+    position:sticky;
+    top: 0;
+}
+.navbar .logo {
+   /* font-family:  pt-serif,serif;*/
+    font-family: 'playfair display',serif;
+    font-weight: 600;
+    font-size:2.3rem;
+    color: tomato;
+    flex: 1;
+}
+.logo .fa{
+    margin-right: 2vw;
+    margin-left: 2vw;
+    
+    
+}
+.navbar .logo font {
+    color: white;
+    font-family: 'playfair display',serif;
+
+}
+.menu-list{
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.list-item a {
+    font-family:  pt-serif,serif;
+   padding:5px;
+    font-weight: 500;
+    font-size:  1.5rem;
+    text-decoration: none;
+    color: white;
+}
+.list-item a:hover,.list-item a.active{
+    border-radius:2px ;
+    color:tomato;
+}
+.list-item{
+    list-style: none;
+    margin-left: 4vw;
+    padding:5px 10px;
+    
+}
+
+.toggle-btn i {
+    color: white;
+    margin-right:3vw;
+    margin-top: 1vh;    
+    font-size:2rem;
+    display: none;
+}
+@media screen and (max-width:800px){
+    .logo{
+        font-size: 1.5rem;
+    }
+    .list-item{
+        margin-left:2vw;
+
+    }
+    .list-item a{
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 600px){
+    .toggle-btn i{
+        display: block;
+    }
+    .menu-list{
+        visibility: visible;
+         opacity: 1;      
+         transform: scale(1);   
+        flex-direction: column;
+        width: 100%;
+        position:absolute;
+        background: rgba(0,0,0,0.9);
+        text-align: center;
+        right: 0;    
+        top:44px;
+        transition:all ease-in-out 0.5s;
+    }
+    .menu-list.closed{
+        
+        visibility: hidden;
+        opacity: 0;
+        transform: scale(0);
+        transition:all ease-in-out 0.5s;
+        
+    }
+
+    .fa{
+        cursor: pointer;
+    }
+    .fa-times{
+        transform:rotate(360deg);
+        transition:ease-in-out 0.5s;
+    }
+    .fa-bars{
+        transform:rotate(-180deg);
+        transition:ease-in-out 0.5s;
+    }
+    .list-item{
+        padding:10px;
+        margin-left:0;
+        margin-bottom: 20px;
+    }
+    .list-item:last-child{
+        margin-bottom:0;
+    }
+}
