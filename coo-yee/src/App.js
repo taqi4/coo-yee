@@ -2,6 +2,7 @@ import React,{useState,useMemo,useContext} from 'react';
 import {Switch,Route,useLocation} from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import "./App.css";
+import {Helmet} from "react-helmet";
 
 import Home from './components/Home/Home';
 import {AnimatePresence} from 'framer-motion';
@@ -28,7 +29,16 @@ const App = () => {
 
     return (
     <div className="container">
-    
+
+    <Helmet>
+     <title>CooYee</title>
+     <meta name="description" content="Coordinate with Employee Helps Employer and Employees to coordinate with eachother efficiently with its various features like task, updates, task status , task details , request leave , leave status, leave counter and many more.."/>
+     <meta name="keywords" content="coordinate with employee, employee manager, task assigner,request leave"/>
+     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    </Helmet>
         <NavBar
         isAdmin={isAdmin}
         isLoggedIn={isLoggedIn}/>
